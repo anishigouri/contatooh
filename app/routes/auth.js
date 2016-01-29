@@ -7,4 +7,8 @@ module.exports = function(app) {
             successRedirect: '/'
         })
     );
+    app.get('/logout', function(req, res) {
+        req.logOut(); //exposto pelo passaport
+        res.redirect('/');
+    });
 }
