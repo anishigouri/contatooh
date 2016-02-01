@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
 
+//Usado para segurança da aplicação, ocultar header e etc...
+var helmet = require('helmet');
+
 module.exports = function() {
     var app = express();
 
@@ -33,6 +36,20 @@ module.exports = function() {
 
     app.use(passport.initialize());
     app.use(passport.session());
+
+    app.use(helmet());
+
+    app.use(helmet.xframe());
+
+    app.use(helmet.xssFilter());
+
+    app.use(helmet.nosniff());
+
+    //Esconde a tecnologia usada na aplicação
+    app.disable('x-powered-by');
+
+    //Gera um informação falsa sobre a aplicação
+    app.use(helmet.hidePoweredBy({setTo: 'PHP 5.5.14'}));
 
     //home(app);
     load('models', {cwd: 'app'})
