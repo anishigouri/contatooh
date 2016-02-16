@@ -1,4 +1,4 @@
-angular.module('contatooh').controller('ContatoController', function($scope, $routeParams, Contato) {
+angular.module('contatooh').controller('ContatoController', ["$scope", "$routeParams", "Contato", function($scope, $routeParams, Contato) {
 
     $scope.mensagem = {texto: ''};
 
@@ -34,4 +34,4 @@ angular.module('contatooh').controller('ContatoController', function($scope, $ro
         $scope.contatos = contatos;
     });
 
-});
+}]);

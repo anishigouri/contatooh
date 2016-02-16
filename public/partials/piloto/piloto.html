@@ -1,0 +1,100 @@
+<div class="jumbotron">
+    <h1 class="text-center">
+        Bem vindo ao cadastro de pilotos
+    </h1>
+</div>
+<h1 class="text-center">Piloto</h1>
+<p ng-show="mensagem.texto">
+    {{mensagem.texto}}
+</p>
+<form ng-submit="salva()">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-pencil"></i>&nbsp;Dados Pessoais
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label for="nomeCompleto">Nome Completo</label>
+                        <input type="text" maxlength="100" class="form-control" id="nomeCompleto" name="nomeCompleto" required ng-model="piloto.nomeCompleto" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="dataNascimento">Data de Nascimento</label>
+                        <input type="text" maxlength="10" class="form-control" id="dataNascimento" name="dataNascimento" required ng-model="piloto.dataNascimento" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="cpf">CPF</label>
+                        <input type="text" maxlength="14" placeholder="000.000.000-00" class="form-control" id="cpf" name="cpf" required ng-model="piloto.cpf" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label for="naturalidade">Naturalidade</label>
+                        <input type="text" maxlength="45" class="form-control" id="naturalidade" name="naturalidade" required ng-model="piloto.naturalidade" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="nacionalidade">Nacionalidade</label>
+                        <input type="text" maxlength="45" class="form-control" id="nacionalidade" name="nacionalidade" required ng-model="piloto.nacionalidade" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="rg">RG</label>
+                        <input type="text" maxlength="20" class="form-control" id="rg" name="rg" required ng-model="piloto.rg" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="dataEmissao">Data Emissão</label>
+                        <input type="text" maxlength="10" class="form-control" id="dataEmissao" name="dataEmissao" required ng-model="piloto.dataEmissao" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="orgaoExpedidor">Orgão Expedidor</label>
+                        <input type="text" maxlength="3" class="form-control" id="orgaoExpedidor" name="orgaoExpedidor" required ng-model="piloto.orgaoExpedidor" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label for="altura">Altura</label>
+                        <input type="text" maxlength="3" placeholder="0,00" class="form-control" id="altura" name="altura" required ng-model="piloto.altura" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="peso">Peso</label>
+                        <input type="text" maxlength="3" placeholder="000,00" class="form-control" id="peso" name="peso" required ng-model="piloto.peso" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="tipoSanguineo">Tipo Sanguíneo</label>
+                        <input type="text" maxlength="2" class="form-control" id="tipoSanguineo" name="tipoSanguineo" required ng-model="piloto.tipoSanguineo" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-pencil"></i>&nbsp;Contato
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <label for="email">E-mail</label>
+                        <input type="text" maxlength="100" placeholder="exemplo@exemplo.com" class="form-control" id="email" name="email" required ng-model="piloto.email" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" maxlength="13" placeholder="(00)0000-0000" class="form-control" id="telefone" name="telefone" required ng-model="piloto.telefone" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="celular">Celular</label>
+                        <input type="text" maxlength="14" placeholder="(00)00000-0000" class="form-control" id="celular" name="celular" required ng-model="piloto.celular" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        Salvar
+    </button>
+</form>

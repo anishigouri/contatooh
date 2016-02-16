@@ -17,6 +17,11 @@ angular.module('contatooh', ['ngRoute', 'ngResource'])
         controller: 'ContatoController'
     });
 
+    $routeProvider.when('/piloto', {
+        templateUrl: 'partials/piloto/piloto.html',
+        controller: 'PilotoController'
+    });
+
     $routeProvider.when('/auth', {
         templateUrl: 'partials/auth.html'
     });
