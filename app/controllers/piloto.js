@@ -8,6 +8,51 @@ module.exports = function(app) {
 
     var controller = {};
 
+    controller.listaPilotos = function(req, res) {
+        // A função exec recebe retorna uma Promise(Essa é uma função do mongoose)
+        var promise = Piloto.find().exec()
+        .then(
+            function(pilotos) {
+                console.log('pilotos', pilotos);
+                res.json(pilotos);
+            },
+            function(erro) {
+                console.error(erro);
+                res.status(500).json(erro);
+            }
+        );
+    }
+
+    controller.obtemPiloto = function(req, res) {
+        var _id = req.params.id;
+        Piloto.findById(_id).exec()
+        .then(
+            function(piloto) {
+                if(!piloto) throw new Error("Piloto não encontrado");
+                console.log('OBTEVE MEU PILOTO', piloto);
+                res.json(piloto);
+            },
+            function(erro) {
+                console.log(erro);
+                res.status(404).json(erro);
+            }
+        )
+    }
+
+    controller.removePiloto = function(req, res) {
+        //Remove qualquer chave que contenha "$" evitando sql injection
+        var _id = sanitize(req.params.id);
+        Piloto.remove({"_id": _id}).exec()
+        .then(
+            function() {
+                res.status(204).end();
+            },
+            function(erro) {
+                return console.error(erro);
+            }
+        )
+    };
+
     controller.salvaPiloto = function(req, res) {
         var _id = req.body._id;
 
@@ -33,8 +78,6 @@ module.exports = function(app) {
             "bairro": req.body.bairro
         }
 
-        console.log('TA SALVANUUUUUUUUUUUUUUUUUUUUUUUUUUU', dados);
-
         Piloto.create(dados)
         .then(
             function(piloto) {
@@ -45,12 +88,6 @@ module.exports = function(app) {
                 res.status(500).json(erro);
             }
         )
-    }
-
-    //ficaria nesse controller mesmo???
-    //ou eu criaria um só para endereco?
-    controller.listaMunicipios = function(req, res) {
-        var promise = {};
     }
 
     return controller;

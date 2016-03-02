@@ -47,6 +47,7 @@ module.exports = function(app) {
         var promise = Contato.find().populate('emergencia').exec()
         .then(
             function(contatos) {
+                console.log('contatos', contatos);
                 res.json(contatos);
             },
             function(erro) {

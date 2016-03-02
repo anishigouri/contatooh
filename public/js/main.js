@@ -7,6 +7,7 @@ angular.module('contatooh', ['ngRoute', 'ngResource'])
         templateUrl: 'partials/contato.html',
         controller: 'ContatoController'
     });
+
     $routeProvider.when('/contatos', {
         templateUrl: 'partials/contatos.html',
         controller: 'ContatosController'
@@ -16,6 +17,16 @@ angular.module('contatooh', ['ngRoute', 'ngResource'])
         templateUrl: 'partials/contato.html',
         controller: 'ContatoController'
     });
+
+    $routeProvider.when('/piloto/:pilotoId', {
+        templateUrl: 'partials/piloto/piloto.html',
+        controller: 'PilotoController'
+    });
+
+    $routeProvider.when('/pilotos', {
+        templateUrl: 'partials/piloto/pilotos.html',
+        controller: 'PilotosController'
+    })
 
     $routeProvider.when('/piloto', {
         templateUrl: 'partials/piloto/piloto.html',

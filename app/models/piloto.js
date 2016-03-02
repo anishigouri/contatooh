@@ -60,27 +60,28 @@ module.exports = function() {
         },
         cep: {
             type: String,
-            required: false
+            required: true
         },
         endereco: {
             type: String,
-            required: false
+            required: true
         },
         numero: {
             type: String,
-            required: false
+            required: true
         },
         uf: {
             type: String,
-            required: false
+            required: true
         },
         municipio: {
-            type: String,
-            required: false
+            type: mongoose.Schema.ObjectId,
+            required: true,
+            ref: 'Municipio'
         },
         bairro: {
             type: String,
-            required: false
+            required: true
         }
     });
 
