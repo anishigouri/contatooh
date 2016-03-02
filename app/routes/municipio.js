@@ -3,7 +3,10 @@ module.exports = function(app) {
     var controller = app.controllers.municipio;
 
     app.route('/endereco/ufs')
-        .get(verificaAutenticacao, controller.listaUfs);
+        .get(controller.listaUfs)
+
+    app.route('/endereco/municipio/:uf')
+        .get(controller.listaMunicipiosPorUf);
 
 }
 
