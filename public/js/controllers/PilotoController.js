@@ -1,4 +1,4 @@
-angular.module('contatooh').controller('PilotoController', function($scope, $routeParams, Piloto) {
+angular.module('contatooh').controller('PilotoController', function($scope, $routeParams, Piloto, Ufs) {
 
     $scope.mensagem = {texto: ''}
 
@@ -13,7 +13,16 @@ angular.module('contatooh').controller('PilotoController', function($scope, $rou
         .catch(function(erro) {
             $scope.mensagem = {texto: 'Não foi possível salvar'};
         })
-    }
+    };
+
+    Ufs.query(function(ufs) {
+        var _ufs = ufs.map(function(item) {
+            return {id: item, descricao: item};
+        });
+        $scope.ufs = _ufs;
+    })
+
+
 
 
 });

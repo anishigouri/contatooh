@@ -47,6 +47,12 @@ module.exports = function(app) {
         )
     }
 
+    //ficaria nesse controller mesmo???
+    //ou eu criaria um só para endereco?
+    controller.listaMunicipios = function(req, res) {
+        var promise = {};
+    }
+
     return controller;
 
 }

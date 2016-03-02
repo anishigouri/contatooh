@@ -96,7 +96,13 @@
                 <div class="form-group">
                     <div class="col-md-2">
                         <label for="uf">UF</label>
-                        <select class="form-control"></select>
+                        <select
+                            class="form-control"
+                            id="uf"
+                            ng-model="piloto.uf"
+                            name="uf"
+                            ng-options="uf.id as uf.descricao for uf in ufs" >
+                        </select>
                     </div>
                     <div class="col-md-3">
                         <label for="municipio">Município</label>
