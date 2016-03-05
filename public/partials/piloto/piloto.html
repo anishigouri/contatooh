@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-md-2">
                         <label for="cpf">CPF</label>
-                        <input type="text" maxlength="14" placeholder="000.000.000-00" class="form-control" id="cpf" name="cpf" required ng-model="piloto.cpf" />
+                        <input type="text" maxlength="14" ng-cpf ui-mask="999.999.999-99" class="form-control" id="cpf" name="cpf" required ng-model="piloto.cpf" />
                     </div>
                 </div>
             </div>
@@ -45,7 +45,8 @@
                     </div>
                     <div class="col-md-2">
                         <label for="dataEmissao">Data Emissão</label>
-                        <input type="text" maxlength="10" class="form-control" id="dataEmissao" name="dataEmissao" required ng-model="piloto.dataEmissao" />
+                        <input type="text" ui-date="date" maxlength="10" class="form-control" id="dataEmissao" name="dataEmissao" required ng-model="piloto.dataEmissao" />
+                        <input value={{ piloto.cpf }}></input>
                     </div>
                     <div class="col-md-2">
                         <label for="orgaoExpedidor">Orgão Expedidor</label>
@@ -80,7 +81,7 @@
                 <div class="form-group">
                     <div class="col-md-2">
                         <label for="cep">CEP</label>
-                        <input type="text" maxlength="9" required placeholder="00000-000" class="form-control" id="cep" name="cpe" ng-model="piloto.cep" />
+                        <input type="text" maxlength="9" required ui-mask="99999-999" class="form-control" id="cep" name="cpe" ng-model="piloto.cep" />
                     </div>
                     <div class="col-md-6">
                         <label for="telefone">Endereço</label>
@@ -103,7 +104,7 @@
                             ng-change="buscaMunicipios()"
                             ng-model="piloto.uf"
                             name="uf"
-                            ng-options="uf.id as uf.descricao for uf in ufs" >
+                            ng-options="uf._id as uf.descricao for uf in ufs" >
                         </select>
                     </div>
                     <div class="col-md-3">
@@ -137,11 +138,11 @@
                     </div>
                     <div class="col-md-2">
                         <label for="telefone">Telefone</label>
-                        <input type="text" maxlength="13" placeholder="(00)0000-0000" class="form-control" id="telefone" name="telefone" ng-model="piloto.telefone" />
+                        <input type="text" maxlength="13" ui-mask="(99)9999-9999" class="form-control" id="telefone" name="telefone" ng-model="piloto.telefone" />
                     </div>
                     <div class="col-md-2">
                         <label for="celular">Celular</label>
-                        <input type="text" maxlength="14" placeholder="(00)00000-0000" class="form-control" id="celular" name="celular" ng-model="piloto.celular" />
+                        <input type="text" maxlength="14" ui-mask="(99)99999-9999" class="form-control" id="celular" name="celular" ng-model="piloto.celular" />
                     </div>
                 </div>
             </div>

@@ -70,6 +70,7 @@ module.exports = function(app) {
             "tipoSanguineo": req.body.tipoSanguineo,
             "email": req.body.email,
             "telefone": req.body.telefone,
+            "celular": req.body.celular,
             "cep": req.body.cep,
             "endereco": req.body.endereco,
             "numero": req.body.numero,
@@ -78,16 +79,31 @@ module.exports = function(app) {
             "bairro": req.body.bairro
         }
 
-        Piloto.create(dados)
-        .then(
-            function(piloto) {
-                res.status(201).json(piloto);
-            },
-            function(erro) {
-                console.log('erro', erro);
-                res.status(500).json(erro);
-            }
-        )
+        if(_id) {
+            Piloto.findByIdAndUpdate(_id, dados).exec()
+            .then(
+                function(piloto) {
+                    res.json(piloto);
+                },
+                function(erro) {
+                    console.error(erro);
+                    res.status(500).json(erro);
+                }
+            );
+        } else {
+            Piloto.create(dados)
+            .then(
+                function(piloto) {
+                    res.status(201).json(piloto);
+                },
+                function(erro) {
+                    console.log('erro', erro);
+                    res.status(500).json(erro);
+                }
+            )
+        }
+
+
     }
 
     return controller;

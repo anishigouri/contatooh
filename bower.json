@@ -21,6 +21,8 @@
     "angular-route": "1.3",
     "bootstrap": "3.3",
     "angular-resource": "1.3",
-    "ng-cpf-cnpj": "~0.0.5"
+    "ng-cpf-cnpj": "~0.0.5",
+    "angular-ui-date": "~1.0.0",
+    "angular-ui-mask": "~1.8.1"
   }
 }

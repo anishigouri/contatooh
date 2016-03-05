@@ -1,4 +1,4 @@
-angular.module('contatooh', ['ngRoute', 'ngResource'])
+angular.module('contatooh', ['ngRoute', 'ngResource', 'ui.date', 'ui.mask', 'ngCpfCnpj'])
     .config(function($routeProvider, $httpProvider) {
 
     $httpProvider.interceptors.push('meuInterceptor');
@@ -37,5 +37,5 @@ angular.module('contatooh', ['ngRoute', 'ngResource'])
         templateUrl: 'partials/auth.html'
     });
     //Caso não exista a rota, direciona para contatos
-    $routeProvider.otherwise({redirectTo: '/contatos'});
+    $routeProvider.otherwise({redirectTo: '/pilotos'});
 });

@@ -10,7 +10,7 @@ module.exports = function(app) {
 
     controller.listaUfs = function(req, res) {
         // A função exec recebe retorna uma Promise(Essa é uma função do mongoose)
-        var promise = Municipio.find({}).distinct('uf').exec()
+        var promise = Municipio.distinct('uf').exec()
         .then(
             function(ufs) {
                 res.json(ufs);
@@ -29,7 +29,6 @@ module.exports = function(app) {
         Municipio.find({uf: uf}).exec()
         .then(
             function(municipios) {
-                console.log('RETORNOUUUU', municipios);
                 res.json(municipios);
             },
             function(erro) {
