@@ -1,0 +1,56 @@
+<div class="jumbotron">
+    <h1 class="text-center">
+        Bem vindo ao cadastro de pista
+    </h1>
+</div>
+<h1 class="text-center">Pista</h1>
+<p ng-show="mensagem.texto">
+    {{mensagem.texto}}
+</p>
+<form name="formPista" ng-submit="salva()">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-pencil"></i>&nbsp;Dados do Kartódromo
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label for="nome">Nome do Kartódromo</label>
+                        <input type="text" maxlength="100" class="form-control" id="nome" name="nome" required ng-model="pista.nome" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-pencil"></i>&nbsp;Contato
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <label for="email">E-mail</label>
+                        <input type="text" maxlength="100" placeholder="exemplo@exemplo.com" class="form-control" id="email" name="email" ng-model="pista.email" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" maxlength="13" ui-mask="(99)9999-9999" class="form-control" id="telefone" name="telefone" ng-model="pista.telefone" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="celular">Celular</label>
+                        <input type="text" maxlength="14" ui-mask="(99)99999-9999" class="form-control" id="celular" name="celular" ng-model="pista.celular" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-controller="EnderecoController">
+        <div ng-include src="'/partials/shared/endereco.html'">
+    </div>
+    <button type="submit" class="btn btn-primary">
+        Salvar
+    </button>
+</form>

@@ -18,6 +18,21 @@ angular.module('contatooh', ['ngRoute', 'ngResource', 'ui.date', 'ui.mask', 'ngC
         controller: 'ContatoController'
     });
 
+    $routeProvider.when('/pista', {
+        templateUrl: 'partials/pista/pista.html',
+        controller: 'PistaController'
+    });
+
+    $routeProvider.when('/pista/:pistaId', {
+        templateUrl: 'partials/pista/pista.html',
+        controller: 'PistaController'
+    });
+
+    $routeProvider.when('/pistas', {
+        templateUrl: 'partials/pista/pistas.html',
+        controller: 'PistasController'
+    })
+
     $routeProvider.when('/piloto/:pilotoId', {
         templateUrl: 'partials/piloto/piloto.html',
         controller: 'PilotoController'

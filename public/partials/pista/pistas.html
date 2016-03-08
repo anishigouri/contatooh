@@ -6,43 +6,43 @@
 <p ng-show="mensagem.texto">
     {{mensagem.texto}}
 </p>
-<a ng-href="#/piloto" class="btn btn-primary">
-    Novo Piloto
+<a ng-href="#/pista" class="btn btn-primary">
+    Nova Pista
 </a>
 <input ng-model="filtro" type="search" placeholder="parte do nome">
-<p ng-show="pilotos.length">
-    Pilotos cadastrados: {{pilotos.length}}
+<p ng-show="pistas.length">
+    Pistas cadastrados: {{pistas.length}}
 </p>
 <div class="table-responsive">
     <table class="table table-hover">
         <tr>
             <th>NOME</th>
             <th>ENDEREÇO</th>
-            <th>CELULAR</th>
+            <th>TELEFONE</th>
             <th>E-MAIL</th>
             <th class="text-center">Ação</th>
         </tr>
-        <tr ng-repeat="piloto in pilotos | filter: filtro">
+        <tr ng-repeat="pista in pistas | filter: filtro">
             <td>
-                <a ng-href="#/piloto/{{piloto._id}}">{{piloto.nomeCompleto}}</a>
+                <a ng-href="#/pista/{{pista._id}}">{{pista.nome}}</a>
             </td>
             <td>
-                {{piloto.endereco}}
+                {{pista.endereco}}
             </td>
             <td>
-                {{piloto.celular}}
+                {{pista.celular}}
             </td>
             <td>
-                {{piloto.email}}
+                {{pista.email}}
             </td>
             <td class="text-center">
-                <button class="btn btn-warning" ng-click="remove(piloto)">
+                <button class="btn btn-warning" ng-click="remove(pista)">
                     Remover
                 </button>
             </td>
         </tr>
     </table>
-    <p class="text-info" ng-hide="pilotos.length">
-        Não há pilotos cadastrados
+    <p class="text-info" ng-hide="pistas.length">
+        Não há Pistas cadastrados
     </p>
 </div>
