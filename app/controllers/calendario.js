@@ -4,17 +4,16 @@ var sanitize = require('mongo-sanitize');
 
 module.exports = function(app) {
 
-    var Pista = app.models.pista;
+    var Calendario = app.models.calendario;
 
     var controller = {};
 
-    controller.listaPistas = function(req, res) {
+    controller.listaCalendarios = function(req, res) {
         // A função exec recebe retorna uma Promise(Essa é uma função do mongoose)
-        var promise = Pista.find().exec()
+        var promise = Calendario.find().populate('pista').exec()
         .then(
-            function(pistas) {
-                console.log('pistas', pistas);
-                res.json(pistas);
+            function(calendarios) {
+                res.json(calendarios);
             },
             function(erro) {
                 console.error(erro);
@@ -23,13 +22,13 @@ module.exports = function(app) {
         );
     }
 
-    controller.obtemPista = function(req, res) {
+    controller.obtemCalendario = function(req, res) {
         var _id = req.params.id;
-        Pista.findById(_id).exec()
+        Calendario.findById(_id).exec()
         .then(
-            function(pista) {
-                if(!pista) throw new Error("Pista não encontrada");
-                res.json(pista);
+            function(calendario) {
+                if(!calendario) throw new Error("Calendário não encontrada");
+                res.json(calendario);
             },
             function(erro) {
                 console.log(erro);
@@ -38,10 +37,10 @@ module.exports = function(app) {
         )
     }
 
-    controller.removePista = function(req, res) {
+    controller.removeCalendario = function(req, res) {
         //Remove qualquer chave que contenha "$" evitando sql injection
         var _id = sanitize(req.params.id);
-        Pista.remove({"_id": _id}).exec()
+        Calendario.remove({"_id": _id}).exec()
         .then(
             function() {
                 res.status(204).end();
@@ -52,27 +51,19 @@ module.exports = function(app) {
         )
     };
 
-    controller.salvaPista = function(req, res) {
+    controller.salvaCalendario = function(req, res) {
         var _id = req.body._id;
 
         var dados = {
-            "nome": req.body.nome,
-            "email": req.body.email,
-            "telefone": req.body.telefone,
-            "celular": req.body.celular,
-            "cep": req.body.cep,
-            "endereco": req.body.endereco,
-            "numero": req.body.numero,
-            "uf": req.body.uf,
-            "municipio": req.body.municipio,
-            "bairro": req.body.bairro
+            "pista": req.body.pista,
+            "dataHora": moment(req.body.dataHora, 'DD/MM/YYYY').valueOf()
         }
 
         if(_id) {
-            Pista.findByIdAndUpdate(_id, dados).exec()
+            Calendario.findByIdAndUpdate(_id, dados).exec()
             .then(
-                function(pista) {
-                    res.json(pista);
+                function(calendario) {
+                    res.json(calendario);
                 },
                 function(erro) {
                     console.error(erro);
@@ -80,10 +71,10 @@ module.exports = function(app) {
                 }
             );
         } else {
-            Pista.create(dados)
+            Calendario.create(dados)
             .then(
-                function(pista) {
-                    res.status(201).json(pista);
+                function(calendario) {
+                    res.status(201).json(calendario);
                 },
                 function(erro) {
                     console.log('erro', erro);

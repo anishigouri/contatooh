@@ -48,6 +48,21 @@ angular.module('contatooh', ['ngRoute', 'ngResource', 'ui.date', 'ui.mask', 'ngC
         controller: 'PilotoController'
     });
 
+    $routeProvider.when('/calendario', {
+        templateUrl: 'partials/calendario/calendario.html',
+        controller: 'CalendarioController'
+    });
+
+    $routeProvider.when('/calendarios', {
+        templateUrl: 'partials/calendario/calendarios.html',
+        controller: 'CalendariosController'
+    })
+
+    $routeProvider.when('/calendario/:calendarioId', {
+        templateUrl: 'partials/calendario/calendario.html',
+        controller: 'CalendarioController'
+    });
+
     $routeProvider.when('/auth', {
         templateUrl: 'partials/auth.html'
     });

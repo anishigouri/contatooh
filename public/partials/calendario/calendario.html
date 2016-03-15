@@ -1,0 +1,48 @@
+<div class="jumbotron">
+    <h1 class="text-center">
+        Bem vindo ao cadastro de calendário
+    </h1>
+</div>
+<h1 class="text-center">Calendário</h1>
+<p ng-show="mensagem.texto">
+    {{mensagem.texto}}
+</p>
+<form name="formCalendario" ng-submit="salva()">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-pencil"></i>&nbsp;Dados do Calendário
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label for="pista">Kartódromo</label>
+                        <select
+                            class="form-control"
+                            id="pista"
+                            required
+                            ng-model="calendario.pista"
+                            name="pista"
+                            ng-options="pista._id as pista.nome for pista in pistas" >
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="dataHora">Data e Hora</label>
+                        <input
+                          type="text"
+                          maxlength="10"
+                          ui-mask="99/99/9999"
+                          class="form-control"
+                          id="dataHora"
+                          name="dataHora"
+                          required
+                          ng-model="calendario.dataHora" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        Salvar
+    </button>
+</form>

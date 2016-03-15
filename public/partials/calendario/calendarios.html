@@ -1,0 +1,40 @@
+<div class="jumbotron">
+    <h1 class="text-center">
+        Bem vindo ao contatooh
+    </h1>
+</div>
+<p ng-show="mensagem.texto">
+    {{mensagem.texto}}
+</p>
+<a ng-href="#/calendario" class="btn btn-primary">
+    Novo Calendário
+</a>
+<input ng-model="filtro" type="search" placeholder="parte do nome">
+<p ng-show="calendarios.length">
+    Calendários cadastrados: {{pistas.length}}
+</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <tr>
+            <th>KARTÓDROMO</th>
+            <th>DATA E HORA</th>
+            <th class="text-center">Ação</th>
+        </tr>
+        <tr ng-repeat="calendario in calendarios | filter: filtro">
+            <td>
+                <a ng-href="#/calendario/{{calendario._id}}">{{calendario.pista.nome}}</a>
+            </td>
+            <td>
+                {{calendario.dataHora}}
+            </td>
+            <td class="text-center">
+                <button class="btn btn-warning" ng-click="remove(calendario)">
+                    Remover
+                </button>
+            </td>
+        </tr>
+    </table>
+    <p class="text-info" ng-hide="calendarios.length">
+        Não há Calendários cadastrados
+    </p>
+</div>
