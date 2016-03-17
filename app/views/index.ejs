@@ -7,38 +7,192 @@
         <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css"></link>
         <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.css"></link>
         <link rel="stylesheet" href="vendor/jquery-ui/themes/smoothness/jquery-ui.css"/>
+        <link rel="stylesheet" href="vendor/toastr/toastr.css"/>
         <!-- endbuild -->
 
+        <!-- Custom CSS -->
+        <link href="css/sb-admin.css" rel="stylesheet">
+
+        <!-- Morris Charts CSS -->
+        <link href="vendor/morris.js/morris.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
     </head>
-    <body class="container">
+    <body>
 
-        <%if (usuarioLogado.length > 0) { %>
-        <div class="text-right">
-            <p>
-                Logado como: <span id="usuario-logado">
-                                <%=usuarioLogado %>
-                            </span>
-                            <a href="/logout">Logout</a>
-            </p>
+      <div id="wrapper">
+
+          <!-- Navigation -->
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="index.html">SG - FDP Sistema Gerencial dos Filhos da Pista</a>
+              </div>
+              <!-- Top Menu Items -->
+              <ul class="nav navbar-right top-nav">
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                      <ul class="dropdown-menu message-dropdown">
+                          <li class="message-preview">
+                              <a href="#">
+                                  <div class="media">
+                                      <span class="pull-left">
+                                          <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                      </span>
+                                      <div class="media-body">
+                                          <h5 class="media-heading">
+                                            <strong>
+                                              <%if (usuarioLogado.length > 0) { usuarioLogado }%>
+                                            </strong>
+                                          </h5>
+                                          <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                          <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                      </div>
+                                  </div>
+                              </a>
+                          </li>
+                          <li class="message-preview">
+                              <a href="#">
+                                  <div class="media">
+                                      <span class="pull-left">
+                                          <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                      </span>
+                                      <div class="media-body">
+                                          <h5 class="media-heading"><strong>John Smith</strong>
+                                          </h5>
+                                          <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                          <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                      </div>
+                                  </div>
+                              </a>
+                          </li>
+                          <li class="message-preview">
+                              <a href="#">
+                                  <div class="media">
+                                      <span class="pull-left">
+                                          <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                      </span>
+                                      <div class="media-body">
+                                          <h5 class="media-heading"><strong>John Smith</strong>
+                                          </h5>
+                                          <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                          <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                      </div>
+                                  </div>
+                              </a>
+                          </li>
+                          <li class="message-footer">
+                              <a href="#">Read All New Messages</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                      <ul class="dropdown-menu alert-dropdown">
+                          <li>
+                              <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                          </li>
+                          <li>
+                              <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                          </li>
+                          <li>
+                              <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                          </li>
+                          <li>
+                              <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                          </li>
+                          <li>
+                              <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                          </li>
+                          <li>
+                              <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                          </li>
+                          <li class="divider"></li>
+                          <li>
+                              <a href="#">View All</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="dropdown">
+                      <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user"></i>
+                        <%if (usuarioLogado.length > 0) { %>
+                            <%=usuarioLogado %>
+                        <% } %>
+                        <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li class="divider"></li>
+                          <li>
+                              <a href="/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+              <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+              <div class="collapse navbar-collapse navbar-ex1-collapse">
+                  <ul class="nav navbar-nav side-nav">
+                      <li>
+                          <a href="#/pilotos"><i class="fa fa-fw fa-dashboard"></i> Pilotos</a>
+                      </li>
+                      <li>
+                          <a href="#/pistas"><i class="fa fa-fw fa-road"></i> Kartódromos</a>
+                      </li>
+                      <li>
+                          <a href="#/calendarios"><i class="fa fa-fw fa-dashboard"></i> Calendários</a>
+                      </li>
+                      <li>
+                          <a href="#/contatos"><i class="fa fa-fw fa-dashboard"></i> Contatos</a>
+                      </li>
+                      <li>
+                          <a href="#/pontuacao"><i class="fa fa-fw fa-dashboard"></i> Pontuação</a>
+                      </li>
+                  </ul>
+              </div>
+              <!-- /.navbar-collapse -->
+          </nav>
+
+          <div id="page-wrapper">
+
+            <div class="container-fluid">
+              <div ng-view></div>
+            </div>
+          </div>
+
         </div>
-        <% } %>
 
-        <div ng-view></div>
+
 
         <!-- build:js js/index.min.js -->
         <script src="vendor/angular/angular.js"></script>
         <script src="vendor/angular-route/angular-route.js"></script>
         <script src="vendor/angular-resource/angular-resource.js"></script>
 
-        <!-- Date -->
+        <script src="vendor/moment/moment.js"></script>
+
         <script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
-        <script type="text/javascript" src="vendor/jquery-ui/jquery-ui.js"></script>
-        <script type="text/javascript" src="vendor/angular-ui-date/dist/date.js"></script>
-        <!-- End Date -->
+
+        <script src="vendor/toastr/toastr.js"></script>
+        <script src="js/utils/utils.js"></script>
 
         <!-- UI-Mask -->
         <script type="text/javascript" src="vendor/angular-ui-mask/dist/mask.js"></script>
         <!-- END - UI-Mask -->
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- Morris Charts JavaScript -->
+        <script src="vendor/raphael/raphael-min.js"></script>
+        <script src="vendor/morris.js/morris.min.js"></script>
 
         <!-- CPF-CNPJ -->
         <script src="vendor/cpf_cnpj/build/cpf.js"></script>
@@ -47,6 +201,7 @@
         <!-- END - CPF-CNPJ -->
 
         <script src="js/main.js"></script>
+        <script src="js/controllers/PontuacaoController.js"></script>
         <script src="js/controllers/CalendarioController.js"></script>
         <script src="js/controllers/CalendariosController.js"></script>
         <script src="js/controllers/ContatosController.js"></script>
@@ -61,7 +216,11 @@
         <script src="js/services/UfService.js"></script>
         <script src="js/services/MunicipioService.js"></script>
         <script src="js/services/ContatoService.js"></script>
+        <script src="js/services/PontuacaoService.js"></script>
         <script src="js/services/InterceptorService.js"></script>
+
+        <script src="js/directives/minhas-diretivas.js"></script>
+        <script src="js/directives/uiDateDirective.js"></script>
         <!-- endbuild -->
     </body>
 </html>

@@ -1,0 +1,32 @@
+<div class="jumbotron">
+    <h1 class="text-center">
+        Bem vindo ao cadastro de pontuação
+    </h1>
+</div>
+<h1 class="text-center">Pontuação</h1>
+<form name="formPontuacao" ng-submit="salva()">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-pencil"></i>&nbsp;Dados da pontuação
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group">
+                    <div ng-repeat="pontuacao in pontuacoes">
+                      <div class="row">
+                        <item-pontuacao pontuacao="pontuacao" acao="remove(pontuacao)"/>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a ng-click="adicionaPontuacao()" class="btn btn-primary">
+        Adicionar
+    </a>
+
+    <button type="submit" class="btn btn-primary">
+        Salvar
+    </button>
+</form>

@@ -58,12 +58,12 @@ module.exports = function(app) {
 
         var dados = {
             "nomeCompleto": req.body.nomeCompleto,
-            "dataNascimento": moment(req.body.dataNascimento, 'DD/MM/YYYY').valueOf(),
+            "dataNascimento": req.body.dataNascimento,
             "cpf": req.body.cpf,
             "naturalidade": req.body.naturalidade,
             "nacionalidade": req.body.nacionalidade,
             "rg": req.body.rg,
-            "dataEmissao": moment(req.body.dataEmissao, 'DD/MM/YYYY').valueOf(),
+            "dataEmissao": req.body.dataEmissao,
             "orgaoExpedidor": req.body.orgaoExpedidor,
             "altura": req.body.altura,
             "peso": req.body.peso,

@@ -1,4 +1,4 @@
-angular.module('contatooh', ['ngRoute', 'ngResource', 'ui.date', 'ui.mask', 'ngCpfCnpj'])
+angular.module('contatooh', ['ngRoute', 'ngResource', 'ui.mask', 'ngCpfCnpj', 'minhasDiretivas'])
     .config(function($routeProvider, $httpProvider) {
 
     $httpProvider.interceptors.push('meuInterceptor');
@@ -46,6 +46,16 @@ angular.module('contatooh', ['ngRoute', 'ngResource', 'ui.date', 'ui.mask', 'ngC
     $routeProvider.when('/piloto', {
         templateUrl: 'partials/piloto/piloto.html',
         controller: 'PilotoController'
+    });
+
+    $routeProvider.when('/pontuacao', {
+        templateUrl: 'partials/pontuacao/pontuacao.html',
+        controller: 'PontuacaoController'
+    });
+
+    $routeProvider.when('/pontuacao/:pontuacaoId', {
+        templateUrl: 'partials/pontuacao/pontuacao.html',
+        controller: 'PontuacaoController'
     });
 
     $routeProvider.when('/calendario', {

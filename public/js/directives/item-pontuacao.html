@@ -1,0 +1,13 @@
+<div class="form-group">
+    <div class="col-md-2">
+        <label for="nome">Posição</label>
+        <input class="form-control" maxlength="2" disabled ng-model="pontuacao.posicao">
+    </div>
+    <div class="col-md-2">
+        <label for="nome">Pontos</label>
+        <input class="form-control" maxlength="2" required ng-model="pontuacao.pontos">
+    </div>
+    <div class="col-md-2" ng-show="pontuacao._id">
+        <a class="btn btn-primary" ng-click="acao()" >Remover</a>
+    </div>
+</div>

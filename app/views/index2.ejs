@@ -1,0 +1,73 @@
+<html ng-app="contatooh">
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <meta charset="utf-8">
+        <title>Contatooh</title>
+        <!-- build:css css/index.min.css -->
+        <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css"></link>
+        <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.css"></link>
+        <link rel="stylesheet" href="vendor/jquery-ui/themes/smoothness/jquery-ui.css"/>
+        <link rel="stylesheet" href="vendor/toastr/toastr.css"/>
+        <!-- endbuild -->
+
+    </head>
+    <body class="container">
+
+        <%if (usuarioLogado.length > 0) { %>
+        <div class="text-right">
+            <p>
+                Logado como: <span id="usuario-logado">
+                                <%=usuarioLogado %>
+                            </span>
+                            <a href="/logout">Logout</a>
+            </p>
+        </div>
+        <% } %>
+
+        <div ng-view></div>
+
+        <!-- build:js js/index.min.js -->
+        <script src="vendor/angular/angular.js"></script>
+        <script src="vendor/angular-route/angular-route.js"></script>
+        <script src="vendor/angular-resource/angular-resource.js"></script>
+
+        <script src="vendor/moment/moment.js"></script>
+
+        <!-- Date -->
+        <script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="vendor/jquery-ui/jquery-ui.js"></script>
+        <script type="text/javascript" src="vendor/angular-ui-date/dist/date.js"></script>
+        <!-- End Date -->
+
+        <script src="vendor/toastr/toastr.js"></script>
+        <script src="js/utils/utils.js"></script>
+
+        <!-- UI-Mask -->
+        <script type="text/javascript" src="vendor/angular-ui-mask/dist/mask.js"></script>
+        <!-- END - UI-Mask -->
+
+        <!-- CPF-CNPJ -->
+        <script src="vendor/cpf_cnpj/build/cpf.js"></script>
+        <script src="vendor/cpf_cnpj/build/cnpj.js"></script>
+        <script src="vendor/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+        <!-- END - CPF-CNPJ -->
+
+        <script src="js/main.js"></script>
+        <script src="js/controllers/CalendarioController.js"></script>
+        <script src="js/controllers/CalendariosController.js"></script>
+        <script src="js/controllers/ContatosController.js"></script>
+        <script src="js/controllers/ContatoController.js"></script>
+        <script src="js/controllers/PistaController.js"></script>
+        <script src="js/controllers/PistasController.js"></script>
+        <script src="js/controllers/PilotoController.js"></script>
+        <script src="js/controllers/PilotosController.js"></script>
+        <script src="js/services/PistaService.js"></script>
+        <script src="js/services/CalendarioService.js"></script>
+        <script src="js/services/PilotoService.js"></script>
+        <script src="js/services/UfService.js"></script>
+        <script src="js/services/MunicipioService.js"></script>
+        <script src="js/services/ContatoService.js"></script>
+        <script src="js/services/InterceptorService.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>

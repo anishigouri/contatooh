@@ -24,7 +24,7 @@ angular.module('contatooh').controller('PistaController', function($scope, $rout
     $scope.salva = function() {
         $scope.pista.$save()
         .then(function() {
-            $scope.mensagem = {texto: 'Salvo com sucesso'};
+            alert('Salvo com sucesso', 'Filhos da Pista', 'success');
             $scope.pista = new Pista();
         })
         .catch(function(erro) {

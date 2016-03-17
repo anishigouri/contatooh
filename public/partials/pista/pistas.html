@@ -1,18 +1,24 @@
-<div class="jumbotron">
-    <h1 class="text-center">
-        Bem vindo ao contatooh
-    </h1>
+<!-- Page Heading -->
+<div class="row page-header ">
+    <div class="col-lg-10 ">
+        <h1>
+            Lista de Kartódromos
+        </h1>
+        <p ng-show="pistas.length">
+            Kartódromos cadastrados: {{pistas.length}}
+        </p>
+    </div>
+    <div class="col-lg-2">
+      <a ng-href="#/pista" class="btn btn-primary">
+          <span class="glyphicon glyphicon-road"></span> Nova Pista
+      </a>
+    </div>
 </div>
-<p ng-show="mensagem.texto">
-    {{mensagem.texto}}
-</p>
-<a ng-href="#/pista" class="btn btn-primary">
-    Nova Pista
-</a>
-<input ng-model="filtro" type="search" placeholder="parte do nome">
-<p ng-show="pistas.length">
-    Pistas cadastrados: {{pistas.length}}
-</p>
+<!-- /.row -->
+<div class="form-group input-group">
+    <input type="text" class="form-control" ng-model="filtro" type="search" placeholder="Filtro de Pesquisa">
+    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+</div>
 <div class="table-responsive">
     <table class="table table-hover">
         <tr>
@@ -24,20 +30,25 @@
         </tr>
         <tr ng-repeat="pista in pistas | filter: filtro">
             <td>
-                <a ng-href="#/pista/{{pista._id}}">{{pista.nome}}</a>
+                {{pista.nome}}
             </td>
             <td>
                 {{pista.endereco}}
             </td>
             <td>
-                {{pista.celular}}
+                {{pista.telefone}}
             </td>
             <td>
                 {{pista.email}}
             </td>
+            <td>
+                <a class="btn btn-primary" ng-href="#/pista/{{pista._id}}">
+                  <span class="glyphicon glyphicon-edit"></span> Editar
+                </a>
+            </td>
             <td class="text-center">
                 <button class="btn btn-warning" ng-click="remove(pista)">
-                    Remover
+                    <span class="glyphicon glyphicon-trash"></span> Remover
                 </button>
             </td>
         </tr>
