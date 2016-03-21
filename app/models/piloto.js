@@ -2,6 +2,14 @@ var mongoose = require('mongoose');
 
 module.exports = function() {
     var schema = mongoose.Schema({
+        imagemCapacete: {
+            type: String,
+            required: true
+        },
+        imagemPiloto: {
+            type: String,
+            required: true
+        },
         nomeCompleto: {
             type: String,
             required: true

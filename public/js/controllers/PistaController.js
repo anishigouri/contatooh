@@ -8,6 +8,8 @@ angular.module('contatooh').controller('PistaController', function($scope, $rout
         Pista.get({id: $routeParams.pistaId},
             function(pista) {
                 $scope.pista = pista;
+                $scope.imageCropStep = 3;
+                console.log('P QE volta', pista);
                 $scope.buscaMunicipios();
             },
             function(erro) {
@@ -22,10 +24,10 @@ angular.module('contatooh').controller('PistaController', function($scope, $rout
     }
 
     $scope.salva = function() {
+      console.log('P QE SALVA', $scope.pista);
         $scope.pista.$save()
         .then(function() {
             alert('Salvo com sucesso', 'Filhos da Pista', 'success');
-            $scope.pista = new Pista();
         })
         .catch(function(erro) {
             $scope.mensagem = {texto: 'Não foi possível salvar'};
@@ -82,10 +84,11 @@ angular.module('contatooh').controller('PistaController', function($scope, $rout
 			var files = e.target.files;
 
      		var fileReader = new FileReader();
-  			fileReader.readAsDataURL(files[0]);		
+  			fileReader.readAsDataURL(files[0]);
 
   			fileReader.onload = function(e) {
   				$scope.imgSrc = this.result;
+          $scope.pista.imagem = this.result;
   				$scope.$apply();
   			};
 
@@ -93,8 +96,8 @@ angular.module('contatooh').controller('PistaController', function($scope, $rout
 
   		$scope.clear = function() {
   			 $scope.imageCropStep = 1;
+         delete $scope.pista.imagem;
   			 delete $scope.imgSrc;
-  			 delete $scope.result;
   			 delete $scope.resultBlob;
   		};
 

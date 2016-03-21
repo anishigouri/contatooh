@@ -65,7 +65,8 @@ module.exports = function(app) {
             "numero": req.body.numero,
             "uf": req.body.uf,
             "municipio": req.body.municipio,
-            "bairro": req.body.bairro
+            "bairro": req.body.bairro,
+            "imagem": req.body.imagem
         }
 
         if(_id) {

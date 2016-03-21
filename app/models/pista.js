@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 
 module.exports = function() {
     var schema = mongoose.Schema({
+        imagem: {
+            type: String,
+            required: false
+        },
         nome: {
             type: String,
             required: true

@@ -57,6 +57,8 @@ module.exports = function(app) {
         var _id = req.body._id;
 
         var dados = {
+            "imagemPiloto": req.body.imagemPiloto,
+            "imagemCapacete": req.body.imagemCapacete,
             "nomeCompleto": req.body.nomeCompleto,
             "dataNascimento": req.body.dataNascimento,
             "cpf": req.body.cpf,

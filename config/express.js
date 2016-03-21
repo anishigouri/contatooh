@@ -20,8 +20,8 @@ module.exports = function() {
     app.set('views', './app/views');
 
     //permite acessar o os dados da requisição através de req.body
-    app.use(bodyParser.urlencoded({extended: true}));
-    app.use(bodyParser.json());
+    app.use(bodyParser.json({limit: '50mb'}));
+    app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}));
 
     //Informamos qual verbo pretendemos usar(GET, POST...)
     app.use(require('method-override')());
