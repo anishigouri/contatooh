@@ -8,6 +8,7 @@ angular.module('contatooh').controller('PilotoController', function($scope, $rou
         Piloto.get({id: $routeParams.pilotoId},
             function(piloto) {
                 $scope.piloto = piloto;
+                $scope.imageCropStep = 3;
                 $scope.buscaMunicipios();
             },
             function(erro) {
@@ -90,5 +91,27 @@ angular.module('contatooh').controller('PilotoController', function($scope, $rou
         changeMonth: true,
         yearRange: '1900:-0'
     };
+
+    $scope.fileChanged = function(e) {
+
+		var files = e.target.files;
+
+   		var fileReader = new FileReader();
+			fileReader.readAsDataURL(files[0]);
+
+			fileReader.onload = function(e) {
+				$scope.imgSrc = this.result;
+        $scope.piloto.imagemPiloto = this.result;
+				$scope.$apply();
+			};
+
+		}
+
+		$scope.clear = function() {
+			 $scope.imageCropStep = 1;
+       delete $scope.piloto.imagemPiloto;
+			 delete $scope.imgSrc;
+			 delete $scope.resultBlob;
+		};
 
 });

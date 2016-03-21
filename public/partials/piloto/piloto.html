@@ -15,6 +15,50 @@
         <div class="panel-body">
             <div class="row">
                 <div class="form-group">
+                    <div class="col-md-12">
+                        <div ng-show="imageCropStep == 1">
+                            <input type="file" class="form-control" name="fileInput" id="fileInput" onchange="angular.element(this).scope().fileChanged(event)" />
+                        </div>
+                        <div ng-show="imageCropStep == 2">
+                            <image-crop
+                                data-height="350"
+                                data-width="530"
+                                data-shape="square"
+                                data-step="imageCropStep"
+                                src="piloto.imagemPiloto"
+                                data-result="result"
+                                data-result-blob="resultBlob"
+                                crop="initCrop"
+                                padding="0"
+                                max-size="1024">
+                            </image-crop>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div ng-show="imageCropStep == 2">
+                            <div class="col-md-2">
+                                <a class="btn btn-warning" style="width: 100%" ng-click="clear()">Cancel</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a class="btn btn-primary" style="width: 100%" ng-click="initCrop = true">Crop</a>
+                            </div>
+                        </div>
+                        <div ng-show="imageCropStep == 3">
+                            <img ng-src="{{piloto.imagemPiloto}}"></img>
+                            <textarea class="result-datauri">{{ piloto.imagemPiloto }}</textarea>
+                            <div class="col-md-2">
+                                <a class="btn btn-info" style="width: 100%" ng-click="clear()">Clear</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
                     <div class="col-md-6">
                         <label for="nomeCompleto">Nome Completo</label>
                         <input type="text" maxlength="100" class="form-control" id="nomeCompleto" name="nomeCompleto" required ng-model="piloto.nomeCompleto" />

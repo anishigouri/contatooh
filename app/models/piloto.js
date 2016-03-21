@@ -4,7 +4,7 @@ module.exports = function() {
     var schema = mongoose.Schema({
         imagemCapacete: {
             type: String,
-            required: true
+            required: false
         },
         imagemPiloto: {
             type: String,

@@ -73,6 +73,21 @@ angular.module('contatooh', ['ngRoute', 'ngResource', 'ui.mask', 'ngCpfCnpj', 'm
         controller: 'CalendarioController'
     });
 
+    $routeProvider.when('/resultados', {
+        templateUrl: 'partials/resultado/resultados.html',
+        controller: 'ResultadosController'
+    })
+
+    $routeProvider.when('/resultado', {
+        templateUrl: 'partials/resultado/resultado.html',
+        controller: 'ResultadoController'
+    });
+
+    $routeProvider.when('/resultado/:resultadoId', {
+        templateUrl: 'partials/resultado/resultado.html',
+        controller: 'ResultadoController'
+    });
+
     $routeProvider.when('/auth', {
         templateUrl: 'partials/auth.html'
     });
