@@ -25,6 +25,7 @@
     "toastr": "^2.1.2",
     "morris.js": "morrisjs#^0.5.1",
     "font-awesome": "^4.5.0",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "angular-drag-and-drop-lists": "^1.4.0"
   }
 }

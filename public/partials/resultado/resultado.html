@@ -14,41 +14,41 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="calendario">Data e local da Corrida</label>
                     <select
-                      class="form-control"
-                      ng-options="calendario._id as calendario.descricao for calendario in calendarios"
-                      required
-                      name="calendario"
-                      id="calendario"
-                      ng-model="resultado.calendario">
+                        class="form-control"
+                        ng-options="calendario._id as calendario.descricao for calendario in calendarios"
+                        required
+                        name="calendario"
+                        id="calendario"
+                        ng-model="resultado.calendario">
                     </select>
-                </div>
-                <div class="col-md-4">
-                    <label for="piloto">Piloto (Volta mais rápida)</label>
-                    <select
-                      class="form-control"
-                      ng-options="piloto._id as piloto.nomeCompleto for piloto in pilotos"
-                      required
-                      name="piloto"
-                      id="piloto"
-                      ng-model="resultado.piloto">
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label for="piloto">Tempo da volta</label>
-                    <input
-                      class="form-control"
-                      required
-                      name="tempo"
-                      id="tempo"
-                      ng-model="resultado.tempo">
-                    </input>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-pencil"></i>&nbsp;Informações da Corrida
+        </div>
+        <div class="panel-body simpleDemo">
+            <div class="row">
+                <div class="col-md-12">
+                  <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
+                      <div class="panel panel-info">
+                          <div class="panel-heading">
+                              <h3 class="panel-title">List {{listName}}</h3>
+                          </div>
+                          <div class="panel-body" ng-include="'partials/resultado/drag-list.html'"></div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <button type="submit" class="btn btn-primary">
         Salvar
